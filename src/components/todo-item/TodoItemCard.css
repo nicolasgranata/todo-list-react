@@ -1,0 +1,16 @@
+.todo-item-card:hover {
+  box-shadow: 0px 1px 6px rgba(17, 14, 14, 0.404);
+  cursor: pointer;
+}
+
+.todo-item-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 900;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.75rem;
+}
+
+.todo-item-date {
+  font-style: oblique;
+}
