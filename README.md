@@ -27,7 +27,7 @@ Todo List made with React.
 
 ## About The Project
 
-The goal of this project is to be a starting point for a simple CRUD made with React using Hooks. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). More information about React ([here](https://reactjs.org/)).
+The goal of this project is to be a starting point for a simple CRUD made with React using Hooks and Typescript. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). More information about React ([here](https://reactjs.org/)).
 
 <!-- GETTING STARTED -->
 
