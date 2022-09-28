@@ -52,7 +52,10 @@ export function TodoItemCardForm(props: TodoItemCardFormProps) {
             onChange={props.onChange}
           />
           <FormGroup row={true}>
-            <IconButton arial-label="pin item" onClick={props.onClickPin}>
+            <IconButton
+              arial-label="pin item"
+              onClick={() => props.handleClickPin(false)}
+            >
               {props.todoItem?.pinned ? (
                 <PushPinIcon />
               ) : (

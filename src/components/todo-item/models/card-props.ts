@@ -8,6 +8,7 @@ export interface TodoItemCardProps {
   pinned: boolean;
   id: number;
   handleDelete: (todoItemId: number) => void;
+  handleClickPin: (updateAndRefresh: boolean) => void;
 }
 
 export interface TodoItemModalProps extends TodoItemCardProps {
@@ -18,6 +19,7 @@ export interface TodoItemModalProps extends TodoItemCardProps {
 export interface TodoItemListProps {
   items: TodoItem[];
   handleDelete: (todoItemId: number) => void;
+  handleClickPin: (updateAndRefresh: boolean) => void;
 }
 
 export interface TodoItemCardFormProps {
@@ -27,5 +29,5 @@ export interface TodoItemCardFormProps {
   handleOpen: () => void;
   handleClose: () => void;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  onClickPin: () => void;
+  handleClickPin: (updateAndRefresh: boolean) => void;
 }

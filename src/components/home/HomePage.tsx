@@ -1,4 +1,5 @@
 import { ChangeEvent, useEffect, useState } from "react";
+import { Typography } from "@mui/material";
 import { TodoItem } from "../../models";
 import { getTodoItems } from "../../services/todo-item.service";
 import { TodoItemCardForm } from "../todo-item/TodoItemCardForm";
@@ -40,11 +41,19 @@ export default function HomePage() {
     }));
   };
 
-  const handleOnClicPin = () => {
+  const handleOnClicPin = async (updateAndRefresh: boolean) => {
     setTodoItem((prevTodoItem) => ({
       ...prevTodoItem,
       pinned: !prevTodoItem.pinned,
     }));
+
+    if (updateAndRefresh) {
+      try {
+        await fetchData();
+      } catch (error) {
+        console.error("Error trying to fetch todo item data");
+      }
+    }
   };
 
   const handleSubmit = async () => {
@@ -53,7 +62,9 @@ export default function HomePage() {
       await addTodoItem(payload);
       await fetchData();
       handleClose();
-    } catch (error) {}
+    } catch (error) {
+      console.error("Error trying to add a new todo item");
+    }
   };
 
   const handleClose = () => {
@@ -75,7 +86,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section>
+      <section className="container-form">
         <TodoItemCardForm
           open={open}
           handleClose={handleClose}
@@ -83,16 +94,32 @@ export default function HomePage() {
           todoItem={todoItem}
           onSubmit={handleSubmit}
           onChange={handleChange}
-          onClickPin={handleOnClicPin}
+          handleClickPin={handleOnClicPin}
         />
       </section>
-      <section>
-        <p>Pinned</p>
-        <TodoItemList items={todoPinnedItems} handleDelete={handleDelete} />
+      <section className="container-todoItems">
+        {todoPinnedItems.length > 0 ? (
+          <>
+            <Typography variant="subtitle1">Pinned</Typography>
+            <TodoItemList
+              items={todoPinnedItems}
+              handleDelete={handleDelete}
+              handleClickPin={handleOnClicPin}
+            />
+          </>
+        ) : null}
       </section>
-      <section>
-        <p>Others</p>
-        <TodoItemList items={todoOtherItems} handleDelete={handleDelete} />
+      <section className="container-todoItems">
+        {todoOtherItems.length > 0 ? (
+          <>
+            <Typography variant="subtitle1">Others</Typography>
+            <TodoItemList
+              items={todoOtherItems}
+              handleDelete={handleDelete}
+              handleClickPin={handleOnClicPin}
+            />
+          </>
+        ) : null}
       </section>
     </>
   );

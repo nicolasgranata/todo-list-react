@@ -11,6 +11,7 @@ import {
 import ArchiveIcon from "@mui/icons-material/Archive";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import PushPinIcon from "@mui/icons-material/PushPin";
+import PushPinOutlinedIcon from "@mui/icons-material/PushPinOutlined";
 import { TodoItemModalProps } from "./models/card-props";
 
 const style = {
@@ -64,7 +65,7 @@ export default function TodoItemModal(props: TodoItemModalProps) {
               <ArchiveIcon />
             </IconButton>
             <IconButton arial-label="pin item">
-              <PushPinIcon />
+              {props.pinned ? <PushPinIcon /> : <PushPinOutlinedIcon />}
             </IconButton>
             <Button
               onClick={props.onClose}

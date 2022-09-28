@@ -9,6 +9,7 @@ import {
 import ArchiveIcon from "@mui/icons-material/Archive";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import PushPinOutlinedIcon from "@mui/icons-material/PushPinOutlined";
+import PushPinIcon from "@mui/icons-material/PushPin";
 import "./TodoItemCard.css";
 import { TodoItemCardProps } from "./models/card-props";
 import TodoItemModal from "./TodoItemModal";
@@ -26,10 +27,10 @@ export function TodoItemCard(props: TodoItemCardProps) {
     <>
       <Card className="todo-item-card" variant="outlined">
         <CardContent onClick={handleOpenModal}>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          <Typography variant="h5" component="div">
             {props.title}
           </Typography>
-          <Typography variant="h5" component="div">
+          <Typography variant="h6" component="div">
             {props.body}
           </Typography>
           <Typography sx={{ mb: 1.5 }} color="text.secondary">
@@ -38,9 +39,7 @@ export function TodoItemCard(props: TodoItemCardProps) {
         </CardContent>
         <CardActions>
           <IconButton
-            onClick={(e) => {
-              props.handleDelete(props.id);
-            }}
+            onClick={() => props.handleDelete(props.id)}
             aria-label="delete item"
           >
             <DeleteOutlineIcon />
@@ -48,8 +47,11 @@ export function TodoItemCard(props: TodoItemCardProps) {
           <IconButton arial-label="archive item">
             <ArchiveIcon />
           </IconButton>
-          <IconButton arial-label="pin item">
-            <PushPinOutlinedIcon />
+          <IconButton
+            arial-label="pin item"
+            onClick={() => props.handleClickPin(true)}
+          >
+            {props.pinned ? <PushPinIcon /> : <PushPinOutlinedIcon />}
           </IconButton>
         </CardActions>
       </Card>
@@ -62,6 +64,7 @@ export function TodoItemCard(props: TodoItemCardProps) {
         onClose={handleModalClose}
         handleDelete={() => alert("DELETE FROM MODAL")}
         id={props.id}
+        handleClickPin={() => alert("PIN FROM MODAL")}
       ></TodoItemModal>
     </>
   );
