@@ -36,14 +36,14 @@ export default function TodoItemModal(props: TodoItemModalProps) {
           <CardContent>
             <FormGroup>
               <TextField
-                id="body"
-                placeholder="Create a note..."
+                id="title"
+                placeholder="Title"
                 variant="standard"
                 style={{
                   marginTop: "1rem",
                 }}
                 value={props.todoItem.title}
-                // onChange={props.onChange}
+                onChange={props.onChange}
               />
               <TextField
                 id="body"
@@ -53,7 +53,7 @@ export default function TodoItemModal(props: TodoItemModalProps) {
                   marginTop: "1rem",
                 }}
                 value={props.todoItem.body}
-                // onChange={props.onChange}
+                onChange={props.onChange}
               />
             </FormGroup>
           </CardContent>
@@ -67,13 +67,23 @@ export default function TodoItemModal(props: TodoItemModalProps) {
             <IconButton arial-label="archive item">
               <ArchiveIcon />
             </IconButton>
-            <IconButton arial-label="pin item">
+            <IconButton
+              onClick={() => props.handleClickPin(props.todoItem)}
+              arial-label="pin item"
+            >
               {props.todoItem.pinned ? (
                 <PushPinIcon />
               ) : (
                 <PushPinOutlinedIcon />
               )}
             </IconButton>
+            <Button
+              onClick={() => props.onSubmitCard(props.todoItem)}
+              style={{ color: "black" }}
+              variant="text"
+            >
+              Update
+            </Button>
             <Button
               onClick={props.onClose}
               style={{ color: "black" }}

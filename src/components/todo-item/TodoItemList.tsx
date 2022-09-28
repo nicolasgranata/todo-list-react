@@ -15,6 +15,7 @@ export default function TodoItemList(props: TodoItemListProps) {
                   todoItem={item}
                   handleDelete={props.handleDelete}
                   handleClickPin={props.handleClickPin}
+                  onSubmitCard={props.onSubmitCard}
                 />
               </Grid>
             );

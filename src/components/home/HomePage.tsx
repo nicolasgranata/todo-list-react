@@ -67,7 +67,14 @@ export default function HomePage() {
 
   const handleSubmit = async () => {
     try {
-      const payload: TodoItem = { ...todoItem, date: "Septiembre 26, 2022" };
+      const payload: TodoItem = {
+        ...todoItem,
+        date: new Date().toLocaleDateString(undefined, {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        }),
+      };
       await addTodoItem(payload);
       await fetchData();
       handleClose();
@@ -93,6 +100,18 @@ export default function HomePage() {
     } catch (error) {}
   };
 
+  const handleSubmitCardUpdate = async (item: TodoItem) => {
+    const updatedItem = {
+      ...item,
+    };
+    try {
+      await updateTodoItem(updatedItem);
+      await fetchData();
+    } catch (error) {
+      console.error("Error trying to fetch todo item data");
+    }
+  };
+
   return (
     <>
       <section className="container-form">
@@ -114,6 +133,7 @@ export default function HomePage() {
               items={todoPinnedItems}
               handleDelete={handleDelete}
               handleClickPin={handleOnClickPinCard}
+              onSubmitCard={handleSubmitCardUpdate}
             />
           </>
         ) : null}
@@ -126,6 +146,7 @@ export default function HomePage() {
               items={todoOtherItems}
               handleDelete={handleDelete}
               handleClickPin={handleOnClickPinCard}
+              onSubmitCard={handleSubmitCardUpdate}
             />
           </>
         ) : null}
