@@ -88,4 +88,4 @@ Distributed under the ISC License. See [LICENSE](https://github.com/nicolasgrana
 
 Nicolas Granata - [@nicolasgranata](https://twitter.com/nicolasgranata)
 
-Project Link: [https://github.com/nicolasgranata/crud-express](https://github.com/nicolasgranata/todo-list-react)
+Project Link: [https://github.com/nicolasgranata/todo-list-react](https://github.com/nicolasgranata/todo-list-react)
