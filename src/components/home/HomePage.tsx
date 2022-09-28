@@ -4,7 +4,11 @@ import { TodoItem } from "../../models";
 import { getTodoItems } from "../../services/todo-item.service";
 import { TodoItemCardForm } from "../todo-item/TodoItemCardForm";
 import TodoItemList from "../todo-item/TodoItemList";
-import { addTodoItem, deleteTodoItem } from "../../services/todo-item.service";
+import {
+  addTodoItem,
+  deleteTodoItem,
+  updateTodoItem,
+} from "../../services/todo-item.service";
 
 import "./HomePage.css";
 
@@ -41,19 +45,24 @@ export default function HomePage() {
     }));
   };
 
-  const handleOnClicPin = async (updateAndRefresh: boolean) => {
-    setTodoItem((prevTodoItem) => ({
-      ...prevTodoItem,
-      pinned: !prevTodoItem.pinned,
-    }));
-
-    if (updateAndRefresh) {
-      try {
-        await fetchData();
-      } catch (error) {
-        console.error("Error trying to fetch todo item data");
-      }
+  const handleOnClickPinCard = async (item: TodoItem) => {
+    const updatedItem = {
+      ...item,
+      pinned: !item.pinned,
+    };
+    try {
+      await updateTodoItem(updatedItem);
+      await fetchData();
+    } catch (error) {
+      console.error("Error trying to fetch todo item data");
     }
+  };
+
+  const handleOnClickPinCardForm = () => {
+    setTodoItem((prevItem) => ({
+      ...prevItem,
+      pinned: !prevItem.pinned,
+    }));
   };
 
   const handleSubmit = async () => {
@@ -94,7 +103,7 @@ export default function HomePage() {
           todoItem={todoItem}
           onSubmit={handleSubmit}
           onChange={handleChange}
-          handleClickPin={handleOnClicPin}
+          handleClickPin={handleOnClickPinCardForm}
         />
       </section>
       <section className="container-todoItems">
@@ -104,7 +113,7 @@ export default function HomePage() {
             <TodoItemList
               items={todoPinnedItems}
               handleDelete={handleDelete}
-              handleClickPin={handleOnClicPin}
+              handleClickPin={handleOnClickPinCard}
             />
           </>
         ) : null}
@@ -116,7 +125,7 @@ export default function HomePage() {
             <TodoItemList
               items={todoOtherItems}
               handleDelete={handleDelete}
-              handleClickPin={handleOnClicPin}
+              handleClickPin={handleOnClickPinCard}
             />
           </>
         ) : null}

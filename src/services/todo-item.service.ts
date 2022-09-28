@@ -30,3 +30,14 @@ export async function deleteTodoItem(todoItemId: number): Promise<void> {
     }
   });
 }
+
+export async function updateTodoItem(todoItem: TodoItem): Promise<TodoItem> {
+  return fetch("http://localhost:3001/todo/" + todoItem.id, {
+    method: "PUT",
+    body: JSON.stringify(todoItem),
+    headers: { "Content-type": "application/json; charset=UTF-8" },
+  }).then((response) => {
+    if (response) return response.json();
+    throw response;
+  });
+}

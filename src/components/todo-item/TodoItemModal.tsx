@@ -42,7 +42,7 @@ export default function TodoItemModal(props: TodoItemModalProps) {
                 style={{
                   marginTop: "1rem",
                 }}
-                value={props.title}
+                value={props.todoItem.title}
                 // onChange={props.onChange}
               />
               <TextField
@@ -52,7 +52,7 @@ export default function TodoItemModal(props: TodoItemModalProps) {
                 style={{
                   marginTop: "1rem",
                 }}
-                value={props.body}
+                value={props.todoItem.body}
                 // onChange={props.onChange}
               />
             </FormGroup>
@@ -65,7 +65,11 @@ export default function TodoItemModal(props: TodoItemModalProps) {
               <ArchiveIcon />
             </IconButton>
             <IconButton arial-label="pin item">
-              {props.pinned ? <PushPinIcon /> : <PushPinOutlinedIcon />}
+              {props.todoItem.pinned ? (
+                <PushPinIcon />
+              ) : (
+                <PushPinOutlinedIcon />
+              )}
             </IconButton>
             <Button
               onClick={props.onClose}

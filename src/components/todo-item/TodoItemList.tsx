@@ -12,12 +12,7 @@ export default function TodoItemList(props: TodoItemListProps) {
             return (
               <Grid item xs={4} md={2}>
                 <TodoItemCard
-                  key={item.id}
-                  body={item.body}
-                  title={item.title}
-                  pinned={item.pinned}
-                  date={item.date}
-                  id={item.id ?? 0}
+                  todoItem={item}
                   handleDelete={props.handleDelete}
                   handleClickPin={props.handleClickPin}
                 />

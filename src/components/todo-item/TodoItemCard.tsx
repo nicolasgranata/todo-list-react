@@ -28,18 +28,18 @@ export function TodoItemCard(props: TodoItemCardProps) {
       <Card className="todo-item-card" variant="outlined">
         <CardContent onClick={handleOpenModal}>
           <Typography variant="h5" component="div">
-            {props.title}
+            {props.todoItem.title}
           </Typography>
           <Typography variant="h6" component="div">
-            {props.body}
+            {props.todoItem.body}
           </Typography>
           <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            {props.date}
+            {props.todoItem.date}
           </Typography>
         </CardContent>
         <CardActions>
           <IconButton
-            onClick={() => props.handleDelete(props.id)}
+            onClick={() => props.handleDelete(props.todoItem?.id || 0)}
             aria-label="delete item"
           >
             <DeleteOutlineIcon />
@@ -49,21 +49,17 @@ export function TodoItemCard(props: TodoItemCardProps) {
           </IconButton>
           <IconButton
             arial-label="pin item"
-            onClick={() => props.handleClickPin(true)}
+            onClick={() => props.handleClickPin(props.todoItem)}
           >
-            {props.pinned ? <PushPinIcon /> : <PushPinOutlinedIcon />}
+            {props.todoItem.pinned ? <PushPinIcon /> : <PushPinOutlinedIcon />}
           </IconButton>
         </CardActions>
       </Card>
       <TodoItemModal
-        title={props.title}
-        body={props.body}
-        date={props.date}
-        pinned={props.pinned}
+        todoItem={props.todoItem}
         open={open}
         onClose={handleModalClose}
         handleDelete={() => alert("DELETE FROM MODAL")}
-        id={props.id}
         handleClickPin={() => alert("PIN FROM MODAL")}
       ></TodoItemModal>
     </>
