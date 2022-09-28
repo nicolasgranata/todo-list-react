@@ -58,7 +58,10 @@ export default function TodoItemModal(props: TodoItemModalProps) {
             </FormGroup>
           </CardContent>
           <CardActions>
-            <IconButton aria-label="delete item">
+            <IconButton
+              aria-label="delete item"
+              onClick={() => props.handleDelete(props.todoItem?.id || 0)}
+            >
               <DeleteOutlineIcon />
             </IconButton>
             <IconButton arial-label="archive item">

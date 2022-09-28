@@ -59,7 +59,7 @@ export function TodoItemCard(props: TodoItemCardProps) {
         todoItem={props.todoItem}
         open={open}
         onClose={handleModalClose}
-        handleDelete={() => alert("DELETE FROM MODAL")}
+        handleDelete={props.handleDelete}
         handleClickPin={() => alert("PIN FROM MODAL")}
       ></TodoItemModal>
     </>
