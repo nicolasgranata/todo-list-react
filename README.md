@@ -1,46 +1,91 @@
-# Getting Started with Create React App
+# Todo-List - React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Todo List made with React.
 
-## Available Scripts
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-In the project directory, you can run:
+<!-- ABOUT THE PROJECT -->
 
-### `npm start`
+## About The Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The goal of this project is to be a starting point for a simple CRUD made with React using Hooks. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). More information about React ([here](https://reactjs.org/)).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<!-- GETTING STARTED -->
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Before running this project, please install the following software.
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Install [Node.js LTS](https://nodejs.org/en/download/)
+2. Install [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+3. Install [JSON Server](https://www.npmjs.com/package/json-server#getting-started)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repo
+   ```sh
+    git clone https://github.com/nicolasgranata/todo-list-react.git
+   ```
+2. Inside the project folder todo-list-react, run the following command to install NPM packages
+   ```sh
+    npm install
+   ```
 
-### `npm run eject`
+<!-- USAGE EXAMPLES -->
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Usage
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+You can run the application by executing the following command, inside the root folder
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```sh
+ npm run start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Then you can browse to http://localhost:3001/todo to test the get the todo-items. To browse the React app please go to http://localhost:3000/
 
-## Learn More
+<!-- CONTRIBUTING -->
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contributing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Feel free to contribute. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the ISC License. See [LICENSE](https://github.com/nicolasgranata/todo-list-react/blob/main/LICENSE) for more information.
+
+<!-- CONTACT -->
+
+## Contact
+
+Nicolas Granata - [@nicolasgranata](https://twitter.com/nicolasgranata)
+
+Project Link: [https://github.com/nicolasgranata/crud-express](https://github.com/nicolasgranata/todo-list-react)
